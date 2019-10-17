@@ -21,23 +21,71 @@ def start(m):
 	bot.send_message(m.chat.id, 'На какой уровень образования собираешься поступать?',
 		reply_markup=keyboard)
 	bot.register_next_step_handler(msg, name)
+
 def name(m):
 	if m.text == 'СПО':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности на сайте: https://www.istu.edu/abiturientu/napravleniya/spo ',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная СПО']])
+		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, name1)
 	elif m.text == 'Бакалавриат, специалитет':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: Для очной-https://www.istu.edu/abiturientu/napravleniya/bakalavriat. Для заочной-https://www.istu.edu/abiturientu/napravleniya/bakalavriat_zaoch ',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная Бакалавриат, специалитет']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Заочная Бакалавриат, специалитет']])
+		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, name1)
 	elif m.text == 'Магистратура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: Для очной-https://www.istu.edu/abiturientu/napravleniya/magistratura. Для заочной-https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная Магистратура']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Заочная Магистратура']])
+		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, name1)
 	elif m.text == 'Аспирантура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: Для очной-https://www.istu.edu/abiturientu/napravleniya/aspirantura. Для заочной-https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная Аспирантура']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Заочная Аспирантура']])
+		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, name1) #отправляем в name1
+	print(m.text)
+#направление в name1
+def name1(m):
+	print(m.text)
+	if m.text == 'Очная Аспирантура':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura ',
+			reply_markup=keyboard)
+	elif m.text == 'Заочная Аспирантура':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ',
+			reply_markup=keyboard)
+	elif m.text == 'Очная Бакалавриат, специалитет':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat ',
+			reply_markup=keyboard)
+	elif m.text == 'Заочная Бакалавриат, специалитет':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat_zaoch ',
+			reply_markup=keyboard)
+	elif m.text == 'Очная СПО':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/spo ',
+			reply_markup=keyboard)
+	elif m.text == 'Очная Магистратура':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura ',
+			reply_markup=keyboard)
+	elif m.text == 'Заочная Магистратура':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ',
+			reply_markup=keyboard)
+
+
+
+
 
 @bot.message_handler(commands = ['url'])
 def url(message):
