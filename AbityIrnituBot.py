@@ -69,31 +69,60 @@ def name2(m):
 	print(m.text)
 	if m.text == 'Очная Аспирантура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura ' + 
+			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 	elif m.text == 'Заочная Аспирантура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ' + 
+			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 	elif m.text == 'Очная Бакалавриат, специалитет':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat ' + 
+			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 	elif m.text == 'Заочная Бакалавриат, специалитет':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat_zaoch ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat_zaoch ' + 
+			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 	elif m.text == 'Очная СПО':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/spo ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/spo ' + 
+			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 	elif m.text == 'Очная Магистратура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura '+ 
+			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 	elif m.text == 'Заочная Магистратура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ',
+		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ' + 
+			'А также' +
+			'-Ссылка на все направления https://www.istu.edu/abiturientu/napravleniya' +
+			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
+			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
+			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
 			reply_markup=keyboard)
 
 
