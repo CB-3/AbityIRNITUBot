@@ -32,14 +32,10 @@ def name(m):
 			reply_markup=keyboard)
 	elif m.text == 'Магистратура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		keyboard.add(*[types.KeyboardButton(advert) for advert in ['Очная']])
-		keyboard.add(*[types.KeyboardButton(advert) for advert in ['Заочная ']])
 		bot.send_message(m.chat.id, 'Специальности: Для очной-https://www.istu.edu/abiturientu/napravleniya/magistratura. Для заочной-https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ',
 			reply_markup=keyboard)
 	elif m.text == 'Аспирантура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		keyboard.add(*[types.KeyboardButton(advert) for advert in ['Очная']])
-		keyboard.add(*[types.KeyboardButton(advert) for advert in ['Заочная ']])
 		bot.send_message(m.chat.id, 'Специальности: Для очной-https://www.istu.edu/abiturientu/napravleniya/aspirantura. Для заочной-https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ',
 			reply_markup=keyboard)
 
