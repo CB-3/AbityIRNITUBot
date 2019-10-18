@@ -8,6 +8,7 @@ bot = telebot.TeleBot('981156430:AAFLH8w6tIWGkaXC5iPkU7CMXvYI2R4uS8M')#API бо�
 updater = Updater(token='981156430:AAFLH8w6tIWGkaXC5iPkU7CMXvYI2R4uS8M')#API бота
 dispatcher = updater.dispatcher
 
+
 @bot.message_handler(commands=["start","back"])#Главное меню
 def start(m):
 	msg = bot.send_message(m.chat.id, "Вас приветствует AbityBot. Помощь /help")
@@ -49,6 +50,8 @@ def name(m):								#Обработка переменной name
 		msg = bot.send_message(m.chat.id, 'Выбери какие предметы ты сдавал или планируешь сдавать.(Русский язык нужен для всех специальностей)',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, spec)#Назначаем переменную spec = ответ пользователя
+
+
 def spec(m):								#Обработка переменной spec
 	if m.text == 'Математика (профильный уровень)':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -204,6 +207,8 @@ def name2(m):								#Обработка переменной name2
 		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, vib)#Назначаем переменную vib = ответ пользователя
+
+
 def vib(m):								#Обработка переменной vib
 	if m.text == 'Все направления':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -247,7 +252,6 @@ def text_message(message):#ИИ DialogFlow
         bot.send_message(message.chat.id, text=response)
     else:
         bot.send_message(message.chat.id, text='Я Вас не совсем понял!')
-
 
 
 bot.polling()
