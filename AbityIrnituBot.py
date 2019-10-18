@@ -8,9 +8,9 @@ bot = telebot.TeleBot('981156430:AAFLH8w6tIWGkaXC5iPkU7CMXvYI2R4uS8M')
 updater = Updater(token='981156430:AAFLH8w6tIWGkaXC5iPkU7CMXvYI2R4uS8M') 
 dispatcher = updater.dispatcher
 
-@bot.message_handler(commands=["start"])
+@bot.message_handler(commands=["start","back"])
 def start(m):
-	msg = bot.send_message(m.chat.id, "Вас приветствует AbityBot помощь /help")
+	msg = bot.send_message(m.chat.id, "Вас приветствует AbityBot. Помощь /help")
 	keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 	keyboard.add(*[types.KeyboardButton(name) for name in ['Информация о направлениях']])
 	keyboard.add(*[types.KeyboardButton(name) for name in ['Подобрать специальность']])
@@ -27,12 +27,66 @@ def name(m):
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Бакалавриат, специалитет']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Магистратура']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Аспирантура']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться назад введите /back']])
 		msg = bot.send_message(m.chat.id, 'На какой уровень образования собираешься поступать?',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, name1)
 	elif m.text == 'Часто задаваемые вопросы':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Введите /v + вопрос',
+		bot.send_message(m.chat.id, 'Введите /q + вопрос',
+			reply_markup=keyboard)
+	elif m.text == 'Подобрать специальность':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень)']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень), Обществознание']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень), Физика']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень), Информатика и информационно коммуникационные технологии']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень), Английский язык']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень), Химия']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Обществознание, История']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Обществознание']])
+		msg = bot.send_message(m.chat.id, 'Выбери какие предметы ты сдавал или планируешь сдавать.(Русский язык нужен для всех специальностей)',
+			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, spec)
+def spec(m):
+	if m.text == 'Математика (профильный уровень)':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '07.03.01 - Архитектура, 07.03.02 - Реконструкция и реставрация архитектурного наследия, 07.03.03 - Дизайн архитектурной среды, 29.03.04 - Технология художественной обработки материалов',
+			reply_markup=keyboard)
+	elif m.text == 'Математика (профильный уровень), Обществознание':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '07.03.04 - Градостроительство, 8.03.01 - Экономика, 38.05.01 - Экономическая безопасность, 40.05.01 - Правовое обеспечение национальной безопасности ',
+			reply_markup=keyboard)
+	elif m.text == 'Математика (профильный уровень), Физика':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '08.03.01 - Строительство, 11.03.01 - Радиотехника,'+
+			' 11.03.02 - Инфокоммуникационные технологии и системы связи, 13.03.01 - Теплоэнергетика и теплотехника, 13.03.02 - Электроэнергетика и электротехника,'+
+			' 15.03.01 - Машиностроение, 15.03.04 - Автоматизация технологических процессов и производств, 15.03.05 - Конструкторско-технологическое обеспечение машиностроительных производств,'+
+			' 15.03.06 - Мехатроника и робототехника, 20.03.01 - Техносферная безопасность, 21.03.01 - Нефтегазовое дело, 21.03.02 - Землеустройство и кадастры, 22.03.02 - Металлургия,'+
+			' 23.03.01 - Технология транспортных процессов, 23.03.03 - Эксплуатация транспортно-технологических машин и комплексов,'+
+			' 25.03.01 - Техническая эксплуатация летательных аппаратов и двигателей, 27.03.05 - Инноватика, 28.03.01 - Нанотехнологии и микросистемная техника,'+
+			' 08.05.01 - Строительство уникальных зданий и сооружений, 21.05.01 - Прикладная геодезия, 21.05.02 - Прикладная геология, 21.05.03 - Технология геологической разведки,'+
+			' 21.05.04 - Горное дело, 23.05.01 - Наземные транспортно-технологические средства, 24.05.07 - Самолето- и вертолетостроение',
+			reply_markup=keyboard)
+	elif m.text == 'Математика (профильный уровень), Информатика и информационно коммуникационные технологии':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '09.03.01 - Информатика и вычислительная техника, 09.03.02 - Информационные системы и технологии, 10.03.01 - Информационная безопасность',
+			reply_markup=keyboard)
+	elif m.text == 'Математика (профильный уровень), Английский язык':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '13.03.02 - Электроэнергетика и электротехника (англоязычная программа), 38.03.01 - Экономика (англоязычная программа), 38.03.02 - Менеджмент (англоязычная программа)',
+			reply_markup=keyboard)
+	elif m.text == 'Математика (профильный уровень), Химия':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '18.03.01 - Химическая технология, 19.03.02 - Продукты питания из растительного сырья',
+			reply_markup=keyboard)
+	elif m.text == 'Обществознание, История':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '40.03.01 - Юриспруденция',
+			reply_markup=keyboard)
+	elif m.text == 'Обществознание':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Тебе подходят:' + '42.03.02 - Журналистика, 54.03.01 - Дизайн, 54.05.01 - Монументально-декоративное искусство (живопись)',
 			reply_markup=keyboard)
 
 def name1(m):
@@ -138,8 +192,8 @@ def url(message):
 @bot.message_handler(commands = ['help'])
 def text(message):
 	markup = types.InlineKeyboardMarkup()
-	bot.send_message(message.chat.id, "/start - начать работу , /v + вопрос - общие вопросы , /help - помощь", reply_markup = markup)
-@bot.message_handler(commands = ['v'])
+	bot.send_message(message.chat.id, "/start - начать работу , /q + вопрос - общие вопросы , /help - помощь , /url - сайт Ирниту", reply_markup = markup)
+@bot.message_handler(commands = ['q'])
 def text_message(message):
     request = apiai.ApiAI('af519e66270f48249a973bb8ddb5317d').text_request() # Токен API к Dialogflow
     request.lang = 'ru' # На каком языке будет послан запрос
