@@ -27,7 +27,7 @@ def name(m):
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Бакалавриат, специалитет']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Магистратура']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Аспирантура']])
-		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться назад введите /back']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		msg = bot.send_message(m.chat.id, 'На какой уровень образования собираешься поступать?',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, name1)
@@ -45,20 +45,24 @@ def name(m):
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Математика (профильный уровень), Химия']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Обществознание, История']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Обществознание']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		msg = bot.send_message(m.chat.id, 'Выбери какие предметы ты сдавал или планируешь сдавать.(Русский язык нужен для всех специальностей)',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, spec)
 def spec(m):
 	if m.text == 'Математика (профильный уровень)':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '07.03.01 - Архитектура, 07.03.02 - Реконструкция и реставрация архитектурного наследия, 07.03.03 - Дизайн архитектурной среды, 29.03.04 - Технология художественной обработки материалов',
 			reply_markup=keyboard)
 	elif m.text == 'Математика (профильный уровень), Обществознание':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '07.03.04 - Градостроительство, 8.03.01 - Экономика, 38.05.01 - Экономическая безопасность, 40.05.01 - Правовое обеспечение национальной безопасности ',
 			reply_markup=keyboard)
 	elif m.text == 'Математика (профильный уровень), Физика':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '08.03.01 - Строительство, 11.03.01 - Радиотехника,'+
 			' 11.03.02 - Инфокоммуникационные технологии и системы связи, 13.03.01 - Теплоэнергетика и теплотехника, 13.03.02 - Электроэнергетика и электротехника,'+
 			' 15.03.01 - Машиностроение, 15.03.04 - Автоматизация технологических процессов и производств, 15.03.05 - Конструкторско-технологическое обеспечение машиностроительных производств,'+
@@ -70,29 +74,36 @@ def spec(m):
 			reply_markup=keyboard)
 	elif m.text == 'Математика (профильный уровень), Информатика и информационно коммуникационные технологии':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '09.03.01 - Информатика и вычислительная техника, 09.03.02 - Информационные системы и технологии, 10.03.01 - Информационная безопасность',
 			reply_markup=keyboard)
 	elif m.text == 'Математика (профильный уровень), Английский язык':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '13.03.02 - Электроэнергетика и электротехника (англоязычная программа), 38.03.01 - Экономика (англоязычная программа), 38.03.02 - Менеджмент (англоязычная программа)',
 			reply_markup=keyboard)
 	elif m.text == 'Математика (профильный уровень), Химия':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '18.03.01 - Химическая технология, 19.03.02 - Продукты питания из растительного сырья',
 			reply_markup=keyboard)
 	elif m.text == 'Обществознание, История':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '40.03.01 - Юриспруденция',
 			reply_markup=keyboard)
 	elif m.text == 'Обществознание':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		bot.send_message(m.chat.id, 'Тебе подходят:' + '42.03.02 - Журналистика, 54.03.01 - Дизайн, 54.05.01 - Монументально-декоративное искусство (живопись)',
 			reply_markup=keyboard)
+
 
 def name1(m):
 	if m.text == 'СПО':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная СПО']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, name2)
@@ -100,6 +111,7 @@ def name1(m):
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная Бакалавриат, специалитет']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Заочная Бакалавриат, специалитет']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, name2)
@@ -107,6 +119,7 @@ def name1(m):
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная Магистратура']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Заочная Магистратура']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, name2)
@@ -114,69 +127,98 @@ def name1(m):
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Очная Аспирантура']])
 		keyboard.add(*[types.KeyboardButton(name) for name in ['Заочная Аспирантура']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
 		msg = bot.send_message(m.chat.id, 'Форма обучения?',
 			reply_markup=keyboard)
 		bot.register_next_step_handler(msg, name2) #отправляем в name1
-	print(m.text)
 #направление в name1
 def name2(m):
-	print(m.text)
 	if m.text == 'Очная Аспирантура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura ' + 
-			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura ' ,
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
 	elif m.text == 'Заочная Аспирантура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ' + 
-			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/aspirantura_zaoch ',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
 	elif m.text == 'Очная Бакалавриат, специалитет':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat ' + 
-			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat ',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
 	elif m.text == 'Заочная Бакалавриат, специалитет':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat_zaoch ' + 
-			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/bakalavriat_zaoch ',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
 	elif m.text == 'Очная СПО':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/spo ' + 
-			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/spo ',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
 	elif m.text == 'Очная Магистратура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura '+ 
-			'А также -Ссылка на все направления (https://www.istu.edu/abiturientu/napravleniya)' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura ',
 			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
 	elif m.text == 'Заочная Магистратура':
 		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-		bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ' + 
-			'А также' +
-			'-Ссылка на все направления https://www.istu.edu/abiturientu/napravleniya' +
-			'-Стоимость (https://www.istu.edu/abiturientu/stoimost)' +
-			'-Минимальные баллы (https://www.istu.edu/abiturientu/prokhodnye_bally)' +
-			'-Контрольные цифры приёма (https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn)',
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Все направления']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Стоимость']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Минимальные баллы']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Контрольные цифры приёма']])
+		keyboard.add(*[types.KeyboardButton(name) for name in ['Чтобы вернуться в главное меню введите /back']])
+		msg = bot.send_message(m.chat.id, 'Специальности: https://www.istu.edu/abiturientu/napravleniya/magistratura_zaoch ',
+			reply_markup=keyboard)
+		bot.register_next_step_handler(msg, vib)
+def vib(m):
+	if m.text == 'Все направления':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Держи все направления: https://www.istu.edu/abiturientu/napravleniya ',
+			reply_markup=keyboard)
+	elif m.text == 'Стоимость':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Держи стоимость обучения: https://www.istu.edu/abiturientu/stoimost',
+			reply_markup=keyboard)
+	elif m.text == 'Минимальные баллы':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Минимальные баллы для поступления: https://www.istu.edu/abiturientu/prokhodnye_bally',
+			reply_markup=keyboard)
+	elif m.text == 'Контрольные цифры приёма':
+		keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+		bot.send_message(m.chat.id, 'Контрольные цифры приёма: https://www.istu.edu/abiturientu/kcp/bakalavriat_ochn',
 			reply_markup=keyboard)
 
 
@@ -192,7 +234,7 @@ def url(message):
 @bot.message_handler(commands = ['help'])
 def text(message):
 	markup = types.InlineKeyboardMarkup()
-	bot.send_message(message.chat.id, "/start - начать работу , /q + вопрос - общие вопросы , /help - помощь , /url - сайт Ирниту", reply_markup = markup)
+	bot.send_message(message.chat.id, "/start - начать работу , /q + вопрос - общие вопросы , /help - помощь , /url - сайт Ирниту, /back - вернутся в главное меню", reply_markup = markup)
 @bot.message_handler(commands = ['q'])
 def text_message(message):
     request = apiai.ApiAI('af519e66270f48249a973bb8ddb5317d').text_request() # Токен API к Dialogflow
